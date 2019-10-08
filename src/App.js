@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+<<<<<<< HEAD
 import { Provider } from 'react-redux'
 import store from './store'
 import { Route } from 'react-router-dom'
@@ -31,6 +32,16 @@ class App extends React.Component {
       </Provider>
     );
   }
+=======
+import GameOneContainer from './components/GameOneContainer';
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <GameOneContainer />
+      </header>
+>>>>>>> Game one page made, without Redux..
 
 }
 
