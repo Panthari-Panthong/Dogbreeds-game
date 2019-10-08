@@ -1,15 +1,23 @@
 import React from 'react';
 import './App.css';
+import { Provider } from 'react-redux'
+import store from './store'
+import DogsListContainer from './components/DogsListContainer'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        Dog Game
-      </header>
 
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <div className="App">
+          <header className="App-header">
+            <DogsListContainer />
+          </header>
+        </div>
+      </Provider>
+    );
+  }
+
 }
 
 export default App;
