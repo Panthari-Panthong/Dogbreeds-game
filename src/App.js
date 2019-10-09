@@ -27,7 +27,7 @@ class App extends React.Component {
           <main>
             <Route path="/dogslist" component={DogsListContainer} />
             <Route path="/dogsbreed/:breed" component={DogBreedImagesContainer} />
-            <Rout path="/gameone" component={GameOneContainer} />
+            <Route path="/gameone" component={GameOneContainer} />
           </main>
         </div>
       </Provider>

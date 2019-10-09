@@ -1,31 +1,36 @@
 import React from 'react'
-import request from 'superagent'
+// import request from 'superagent'
+import { getDogImages } from '../actions/dogImages'
+import { connect } from 'react-redux'
 
-export default class BigPicture extends React.Component {
-    state = { dogImage: null }
-
-    componentDidMount() {
-        request
-            .get(`https://dog.ceo/api/breed/${this.props.breed}/images/random`)
-            .then(response => {
-                this.updateBreeds(response.body.message)
-            })
-            .catch(console.error)
+class BigPicture extends React.Component {
+    
+    componentWillLoad() {
+        fetch ()
+            this.props.getDogImages(this.props.breed, 1)
     }
-
-    updateBreeds(breeds) {
-        this.setState({
-            dogImage: breeds
-        })
-    }
-
+    
     render() {
+        console.log('IMAGE:', this.props.breed);
+        
         return (
             <div className="dogs-list">
+                test
                 <h1>What's the breed of this dog?</h1>
-                {/* { !this.state.dogImage && 'Loading...' } */}
-                { this.state.dogImage && <img src={this.state.dogImage} alt="dog"/> }
+            <img src={this.props.image} alt="dog"/>
             </div>
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    console.log('BIGPICTURE:', state)
+    return {
+        image: state.images,
+    }
+}
+const mapDispatchToProps = {
+    getDogImages
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BigPicture)

@@ -1,45 +1,38 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import BigPicture from './BigPicture';
-import { getDogslist, setDogslist } from '../actions/Doglist'
-import { setRightAnswer, setOptions} from '../actions/gameone'
+import { getDogslist } from '../actions/dogslist'
+import { getRightAnswer } from '../actions/gameone'
 
 
 class GameOneContainer extends React.Component {
-    // state = {
-    //     dogBreeds: null,
-    //     rightBreed: null,
-    //     answers: [],
-    //     showAnswers: false
-    // }
-
     componentDidMount() {
-        this.props.getDogslist()
+        this.props.getRightAnswer()
     }
 
-    getRightBreed = (breeds) => {
-        setRightAnswer(breeds)
-    }
-
-    // getWrongBreeds(breeds, amount) {
-    //     for (let i = 0; i < amount; i++) {
-    //         const id = Math.floor((Math.random() * breeds.length) + 1);
-    //         // console.log(breeds[id]);
-    //         this.setState({ answers: [...this.state.answers, breeds[id]] })
-    //         this.state.answers.sort()
-    //     }
-    //     this.setState({ showAnswers: true})
-    // }
 
     render() {
-        // console.log(this.props.breeds);
-        console.log(this.props.breeds)
+        const options = this.props.game.sort()
+        // console.log('OPTIONS', options[0]);
+
         return (
             <div>
-            {!this.props.breeds && 'nee' }
-            {this.props.breeds && this.getRightBreed(this.props.breeds)}
-            
-            {/* {this.props.breeds && this.props.breeds.map(answer => {
+                
+
+                <ul>
+                    {options.map((option) =>
+                        <li key={option}>{option}</li>
+                    )}
+                </ul>
+                 {<BigPicture breed={this.props.game[0]} />}
+
+
+                {!this.props.breeds && 'nee'}
+
+                {/* // Select right answer */}
+                {/* {this.props.breeds && this.getRightBreed(this.props.breeds)} */}
+
+                {/* {this.props.breeds && this.props.breeds.map(answer => {
                   return <p>{answer}</p>
                 })      } */}
             </div>
@@ -51,7 +44,7 @@ class GameOneContainer extends React.Component {
         //         {!this.props.breeds && 'Loading...'}
 
         //         {/* IF FETCHED: */}
-        //         {this.props.breeds && <BigPicture breed={this.props.breed} />}
+
         //         <h1>Answers</h1>
         //         {!this.state.showAnswers && 'No answers'}
 
@@ -64,18 +57,16 @@ class GameOneContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('MapStateToProp:', state);
-    
+    // console.log('MapStateToProp:', state);
+
     return {
-        breeds: state.dogslist,
+        breeds: state.breeds,
         game: state.gameone
     }
 }
 const mapDispatchToProps = {
     getDogslist,
-    setDogslist,
-    setRightAnswer,
-    setOptions
+    getRightAnswer
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameOneContainer)
