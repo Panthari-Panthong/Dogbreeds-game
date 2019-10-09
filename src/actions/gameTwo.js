@@ -13,7 +13,6 @@ export function setDogImages(images) {
     payload: images
   };
 }
-//
 export function getRightAnswer() {
   return function(dispatch) {
     request('https://dog.ceo/api/breeds/image/random/3').then(response => {
