@@ -1,20 +1,26 @@
 import * as React from 'react'
-import * as request from 'superagent'
 import { connect } from 'react-redux'
-
-import DogsList from './DogsList'
-import { setDogslist } from '../actions/dogslist'
+import { Link } from 'react-router-dom'
+import { getDogslist } from '../actions/dogslist'
 
 
 class DogsListContainer extends React.Component {
   componentDidMount() {
-    request('https://dog.ceo/api/breeds/list/all')
-      .then(response => this.props.setDogslist(Object.keys(response.body.message)))
-
+    this.props.getDogslist()
   }
 
   render() {
-    return <DogsList breeds={this.props.breeds} />
+    return (
+      <div>
+        <h1>List all dog breeds</h1>
+        There are {this.props.breeds.length} dog breeds.
+        <ul>
+          {this.props.breeds.map(breed =>
+            <li key={breed}><Link to={`/dogsbreed/${breed}`}>{breed}</Link></li>
+          )}
+        </ul>
+      </div>
+    )
   }
 }
 
@@ -24,5 +30,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { setDogslist })(DogsListContainer)
+export default connect(mapStateToProps, { getDogslist })(DogsListContainer)
 
