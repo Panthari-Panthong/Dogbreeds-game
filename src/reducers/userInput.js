@@ -1,7 +1,16 @@
-const reducer = (state = [], action = {}) => {
+const initialState = {
+  name: 'User',
+  score: 0,
+  totalQuestions: 0,
+  streak: 0
+}
+
+
+
+const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case 'ADD_USER':
-      return [action.payload]
+      return { ...state, name: action.payload.userName }
     default:
       return state
   }
