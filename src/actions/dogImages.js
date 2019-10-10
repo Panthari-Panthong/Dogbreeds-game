@@ -8,13 +8,13 @@ export function setDogImages(images) {
  }
 }
 export function getDogImages(breed, amount) {
-  console.log('test', breed);
+  console.log('getDogImages:', breed);
   
  return function (dispatch) {
    request(`https://dog.ceo/api/breed/${breed}/images/random/${amount}`)
      .then(response => {
 
-       dispatch(setDogImag  es({answers: response.body.message,dogImage}))
+       dispatch(setDogImages(response.body.message))
      })
  }
 }
