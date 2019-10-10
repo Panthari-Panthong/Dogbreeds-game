@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import BigPicture from './BigPicture';
 import { getDogslist } from '../actions/dogslist'
-import { getRightAnswer } from '../actions/gameone'
+import { getRightAnswer, checkAnswer } from '../actions/gameone'
 
 class GameOneContainer extends React.Component {
 
@@ -12,14 +12,14 @@ class GameOneContainer extends React.Component {
 
     render() {
         const options = this.props.game.sort()
-        console.log('PROPS - options', options);
+        // console.log('PROPS - options', options);
 
         return (
             <div>
                 {<BigPicture breed={this.props.game[0]} />}
                 
                     {options.map((option) =>
-                        <button key={option}>{option}</button>
+                        <button onClick={() => checkAnswer(option, this.props.game[0])} key={option}>{option}</button>
                     )}
             </div>
         )

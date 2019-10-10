@@ -13,7 +13,7 @@ class BigPicture extends React.Component {
     }
 
     render() {
-        console.log('PROPS - right answer:', this.props.breed);
+        // console.log('PROPS - right answer:', this.props.breed);
 
         return (
             <div className="dogs-list">

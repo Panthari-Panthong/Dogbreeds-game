@@ -4,7 +4,7 @@ import * as request from 'superagent'
 export const SET_RIGHT_ANSWER = 'SET_RIGHT_ANSWER'
 export const SET_OPTION = 'SET_OPTIONS'
 
-export function getRightAnswer(breeds) {
+export function getRightAnswer() {
 
     return function (dispatch, getState) {
         const currentBreeds = getState().breeds
@@ -25,20 +25,20 @@ export function getRightAnswer(breeds) {
                 dispatch(setRightAnswer(breeds[id]))
                 const options = []
                 options.push(breeds[id])
-                console.log('2. right answer created:', options);
+                // console.log('2. right answer created:', options);
 
                 // Create options
                 for (let i = 0; i < 4; i++) {
                     const idOptions = Math.floor((Math.random() * breeds.length));
                     options.push(breeds[idOptions])
-                    console.log('1. Options created:', breeds[idOptions]);
+                    // console.log('1. Options created:', breeds[idOptions]);
                 }
                 dispatch(setOptions(options))
             })
     }
 }
 export function setOptions(breeds) {
-    console.log('2. all set options:', breeds);
+    // console.log('2. all set options:', breeds);
 
     return {
         type: 'SET_OPTIONS',
@@ -47,10 +47,21 @@ export function setOptions(breeds) {
 }
 
 export function setRightAnswer(breeds) {
-    console.log('1. set right answer: ', breeds);
+    // console.log('1. set right answer: ', breeds);
 
     return {
         type: 'SET_RIGHT_ANSWER',
         payload: breeds
+    }
+}
+
+export function checkAnswer(input, rightAnswer) {
+    console.log('checkAnswers!', input, rightAnswer);
+    if (input === rightAnswer) {
+        console.log('RIGHT ANSWER');
+        // setTimeout(showAnswer, 2000)
+    } else {
+        console.log('WRONG ANSWER...');
+        
     }
 }
