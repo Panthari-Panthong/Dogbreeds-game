@@ -25,7 +25,7 @@ const mapStateToProps = state => {
   console.log('check state', state);
   return {
     images: state.images,
-    correctAnswer: state.gameTwo
+    correctAnswer: state.correctAnswer
   };
 };
 export default connect(
