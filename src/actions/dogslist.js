@@ -14,8 +14,12 @@ export function getDogsList() {
       return;
     }
 
-    request('https://dog.ceo/api/breeds/list/all').then(response => {
-      dispatch(setDogsList(Object.keys(response.body.message)));
-    });
-  };
+
+
+    request('https://dog.ceo/api/breeds/list/all')
+      .then(response => {
+        dispatch(setDogslist(Object.keys(response.body.message)))
+
+      })
+  }
 }
