@@ -2,7 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import BigPicture from './BigPicture';
 import { getDogslist } from '../actions/dogslist'
-import { getRightAnswer, checkAnswer } from '../actions/gameone'
+import { getRightAnswer } from '../actions/gameone'
+import { checkAnswer, showAnswer } from '../actions/sharedGames'
 
 class GameOneContainer extends React.Component {
 
@@ -11,8 +12,8 @@ class GameOneContainer extends React.Component {
     }
 
     render() {
-        const options = this.props.game.sort()
-        // console.log('PROPS - options', options);
+        // console.log('PROPS, this.props.game);
+        const options = [...this.props.game].sort()
 
         return (
             <div>

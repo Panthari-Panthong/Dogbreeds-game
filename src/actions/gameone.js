@@ -25,13 +25,13 @@ export function getRightAnswer() {
                 dispatch(setRightAnswer(breeds[id]))
                 const options = []
                 options.push(breeds[id])
-                // console.log('2. right answer created:', options);
+                console.log('2. right answer created:', options);
 
                 // Create options
                 for (let i = 0; i < 4; i++) {
                     const idOptions = Math.floor((Math.random() * breeds.length));
                     options.push(breeds[idOptions])
-                    // console.log('1. Options created:', breeds[idOptions]);
+                    console.log('1. Options created:', breeds[idOptions]);
                 }
                 dispatch(setOptions(options))
             })
@@ -52,16 +52,5 @@ export function setRightAnswer(breeds) {
     return {
         type: 'SET_RIGHT_ANSWER',
         payload: breeds
-    }
-}
-
-export function checkAnswer(input, rightAnswer) {
-    console.log('checkAnswers!', input, rightAnswer);
-    if (input === rightAnswer) {
-        console.log('RIGHT ANSWER');
-        // setTimeout(showAnswer, 2000)
-    } else {
-        console.log('WRONG ANSWER...');
-        
     }
 }
