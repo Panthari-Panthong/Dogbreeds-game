@@ -11,6 +11,7 @@ import Navbar from './components/Navbar'
 import UserForm from './components/UserForm'
 import GameOneContainer from './components/GameOneContainer';
 import GameTwo from './components/GameTwo';
+import GameThree from './components/GameThree';
 
 
 class App extends React.Component {
@@ -32,8 +33,9 @@ class App extends React.Component {
             <Route path="/dogsbreed/:breed" component={DogBreedImagesContainer} />
             <Route path="/gameone" component={GameOneContainer} />
             <Route path='/gametwo' component={GameTwo} />
+            <Route path='/mixedgame' component={GameThree} />
 
-            
+
           </main>
         </div>
       </Provider>
