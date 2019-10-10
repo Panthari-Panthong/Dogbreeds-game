@@ -1,14 +1,17 @@
 import React from 'react';
 import './App.css';
-import { Provider } from 'react-redux';
-import store from './store';
-import { Route } from 'react-router-dom';
 
-import DogsListContainer from './components/DogsListContainer';
-import DogBreedImagesContainer from './components/DogBreedImagesContainer';
-import Navbar from './components/Navbar';
-import UserForm from './components/UserForm';
+import { Provider } from 'react-redux'
+import store from './store'
+import { Route } from 'react-router-dom'
+
+import DogsListContainer from './components/DogsListContainer'
+import DogBreedImagesContainer from './components/DogBreedImagesContainer'
+import Navbar from './components/Navbar'
+import UserForm from './components/UserForm'
+import GameOneContainer from './components/GameOneContainer';
 import GameTwo from './components/GameTwo';
+
 
 class App extends React.Component {
   render() {
@@ -24,12 +27,13 @@ class App extends React.Component {
           </div>
 
           <main>
-            <Route path='/dogslist' component={DogsListContainer} />
-            <Route
-              path='/dogsbreed/:breed'
-              component={DogBreedImagesContainer}
-            />
+
+            <Route path="/dogslist" component={DogsListContainer} />
+            <Route path="/dogsbreed/:breed" component={DogBreedImagesContainer} />
+            <Route path="/gameone" component={GameOneContainer} />
             <Route path='/gametwo' component={GameTwo} />
+
+            
           </main>
         </div>
       </Provider>

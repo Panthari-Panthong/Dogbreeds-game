@@ -2,10 +2,12 @@ import * as request from 'superagent';
 export const GET_DOGIMAGES = 'GET_DOGIMAGES';
 
 export function setDogImages(images) {
-  return {
-    type: 'GET_DOGIMAGES',
-    payload: images
-  };
+
+ return {
+   type: 'GET_DOGIMAGES',
+   payload: images
+ }
+
 }
 
 export function getDogImages(breed, amount) {
@@ -17,3 +19,4 @@ export function getDogImages(breed, amount) {
     );
   };
 }
+
