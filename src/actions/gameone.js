@@ -31,7 +31,7 @@ export function getRightAnswer() {
                 for (let i = 0; i < 4; i++) {
                     const idOptions = Math.floor((Math.random() * breeds.length));
                     options.push(breeds[idOptions])
-                    console.log('1. Options created:', breeds[idOptions]);
+                    // console.log('1. Options created:', breeds[idOptions]);
                 }
                 dispatch(setOptions(options))
             })

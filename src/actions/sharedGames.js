@@ -2,10 +2,10 @@ export function checkAnswer(input, rightAnswer) {
     console.log('checkAnswers!', input, rightAnswer);
     if (input === rightAnswer) {
         console.log('RIGHT ANSWER');
-        setTimeout(showAnswer('right'), 2000)
+        // setTimeout(showAnswer('right'), 2000)
     } else {
         console.log('WRONG ANSWER...');
-        setTimeout(showAnswer('wrong'), 2000)
+        // setTimeout(showAnswer('wrong'), 2000)
     }
 }
 // function countStreak(streak, answer) {

@@ -3,10 +3,9 @@ import { connect } from 'react-redux'
 import BigPicture from './BigPicture';
 import { getDogslist } from '../actions/dogslist'
 import { getRightAnswer } from '../actions/gameone'
-import { checkAnswer, showAnswer } from '../actions/sharedGames'
+import { checkAnswer } from '../actions/sharedGames'
 
 class GameOneContainer extends React.Component {
-
     componentDidMount() {
         this.props.getRightAnswer()
     }
@@ -18,18 +17,16 @@ class GameOneContainer extends React.Component {
         return (
             <div>
                 {<BigPicture breed={this.props.game[0]} />}
-                
-                    {options.map((option) =>
-                        <button onClick={() => checkAnswer(option, this.props.game[0])} key={option}>{option}</button>
-                    )}
+
+                {options.map((option) =>
+                    <button onClick={() => checkAnswer(option, this.props.game[0])} key={option}>{option}</button>
+                )}
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => {
-    // console.log('PROPS - state:', state);
-
     return {
         breeds: state.breeds,
         game: state.gameone
