@@ -10,7 +10,6 @@ export class GameTwo extends Component {
     return (
       <div>
         <h1>{this.props.correctAnswer}</h1>
-        {console.log(this.props.images)}
         {this.props.images.map(url => {
           return <img key={url} src={url} alt='Dog' />;
         })}
@@ -22,7 +21,6 @@ const mapDispatchToProps = {
   getRightAnswer
 };
 const mapStateToProps = state => {
-  console.log('check state', state);
   return {
     images: state.images,
     correctAnswer: state.correctAnswer
