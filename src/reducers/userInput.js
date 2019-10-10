@@ -2,7 +2,8 @@ const initialState = {
   name: 'User',
   score: 0,
   totalQuestions: 0,
-  streak: 0
+  streak: 0,
+  value: 0
 }
 
 
