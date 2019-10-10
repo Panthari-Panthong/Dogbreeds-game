@@ -12,7 +12,7 @@ class GameOneContainer extends React.Component {
         this.props.getRightAnswer()
     }
     render() {
-        // console.log('PROPS, this.props.game);
+        // console.log('PROPS', this.props.userInput);
         const options = [...this.props.game].sort()
 
         return (
@@ -20,7 +20,7 @@ class GameOneContainer extends React.Component {
                 {<BigPicture breed={this.props.game[0]} />}
 
                 {options.map((option) =>
-                <button onClick={() => this.props.checkAnswer(option)} key={option}>{option}</button>
+                <button onClick={() => this.props.checkAnswer(option, this.props.game[0], this.props.userInput)} key={option}>{option}</button>
                 )}
             </div>
         )
@@ -30,7 +30,8 @@ class GameOneContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         breeds: state.breeds,
-        game: state.gameone
+        game: state.gameone,
+        userInput: state.userInput
     }
 }
 const mapDispatchToProps = {
