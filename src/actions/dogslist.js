@@ -21,6 +21,7 @@ export function getDogslist() {
     request('https://dog.ceo/api/breeds/list/all')
       .then(response => {
         dispatch(setDogslist(Object.keys(response.body.message)))
+
       })
   }
 }

@@ -16,9 +16,7 @@ class UserForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     if (this.state.name) {
-      this.props.addUser({
-        name: this.state.name
-      })
+      this.props.addUser(this.state.name)
     }
   }
 
@@ -38,6 +36,8 @@ class UserForm extends React.Component {
     )
   }
 }
+
+
 
 const mapStateToProps = (state) => {
   return {
