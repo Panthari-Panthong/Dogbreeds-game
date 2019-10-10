@@ -4,6 +4,7 @@ import * as request from 'superagent'
 export const SET_RIGHT_ANSWER = 'SET_RIGHT_ANSWER'
 export const SET_OPTION = 'SET_OPTIONS'
 
+
 export function getRightAnswer() {
 
     return function (dispatch, getState) {
@@ -11,7 +12,7 @@ export function getRightAnswer() {
 
         if (currentBreeds.length !== 0) {
             const id = Math.floor((Math.random() * currentBreeds.length));
-            return dispatch(setRightAnswer(currentBreeds[id]))
+            dispatch(setRightAnswer(currentBreeds[id]))
         }
 
         request('https://dog.ceo/api/breeds/list/all')
@@ -28,7 +29,7 @@ export function getRightAnswer() {
                 console.log('2. right answer created:', options);
 
                 // Create options
-                for (let i = 0; i < 4; i++) {
+                for (let i = 0; i < 2; i++) {
                     const idOptions = Math.floor((Math.random() * breeds.length));
                     options.push(breeds[idOptions])
                     // console.log('1. Options created:', breeds[idOptions]);
