@@ -1,0 +1,20 @@
+.btn-options {
+  background-color: rgb(74, 161, 243);
+  border: 1px solid rgb(201, 200, 200);
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-transform: capitalize;
+  text-decoration: none;
+  font-size: 19px;
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  transition-duration: 0.4s;
+}
+.btn-options:hover {
+  background-color: #4caf50; /* Green */
+  color: white;
+}

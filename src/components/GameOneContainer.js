@@ -1,11 +1,10 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
 import BigPicture from './BigPicture';
-import { getDogslist } from '../actions/dogslist'
-import { getRightAnswer } from '../actions/gameone'
-import { checkAnswer } from '../actions/userInput'
-
-
+import { getDogslist } from '../actions/dogslist';
+import { getRightAnswer } from '../actions/gameone';
+import { checkAnswer } from '../actions/userInput';
+import './GameOneContainer.css';
 
 class GameOneContainer extends React.Component {
     componentDidMount() {
@@ -31,7 +30,7 @@ class GameOneContainer extends React.Component {
                 {<BigPicture breed={this.props.game[0]} correct={this.props.userInput.correct} />}
 
                 {options.map((option) =>
-                    <button
+                    <button  className='btn-options' 
                         onClick={() => this.props.checkAnswer(option, this.props.game[0], this.props.userInput, this.nextQuestion())}
                         key={option}>
                         {option}
@@ -42,17 +41,20 @@ class GameOneContainer extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        breeds: state.breeds,
-        game: state.gameone,
-        userInput: state.userInput
-    }
-}
+const mapStateToProps = state => {
+  return {
+    breeds: state.breeds,
+    game: state.gameone,
+    userInput: state.userInput
+  };
+};
 const mapDispatchToProps = {
-    getDogslist,
-    getRightAnswer,
-    checkAnswer
-}
+  getDogslist,
+  getRightAnswer,
+  checkAnswer
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(GameOneContainer)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(GameOneContainer);

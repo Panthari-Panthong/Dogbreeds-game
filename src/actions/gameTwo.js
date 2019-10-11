@@ -21,7 +21,7 @@ export function getAnswer(answer) {
   };
 }
 export function getRightAnswer() {
-  return function (dispatch) {
+  return function(dispatch) {
     request('https://dog.ceo/api/breeds/image/random/3').then(response => {
       const images = response.body.message.map(url => {
         return url.split('/')[4];

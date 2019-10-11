@@ -1,0 +1,9 @@
+form {
+  background-color: rgb(78, 173, 251);
+  padding: 15px;
+}
+
+.btn-submit {
+  font-size: 18px;
+  text-transform: uppercase;
+}
