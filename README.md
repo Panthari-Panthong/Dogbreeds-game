@@ -1,3 +1,23 @@
+Dog memorizing game -  Group project
+
+**View demo**
+https://optimistic-lichterman-96366d.netlify.com/
+
+
+How the game work?
+
+- In game one you will get a random picture of a dog and 3 options  --> **Read in Remind game one and mixed game**
+
+- In game two you will get the name of a breed and 3 images of dogs after you give an answer you will get the next question
+
+- In mixed game you will get random of game one and game two --> **Read in Remind game one and mixed game**
+
+- Score will update when you give the right answer
+
+**Remind game one and mixed game**
+- In game one & game three you will get a random picture of a dog and 3 options. If the picture not clear, you can click on the picture to get the different picture as the same dog breed. And after you give an answer you will get the next question then you should click on the picture to see that dog breed.
+
+
 📋 Features 📋
 1. The app should have a dog list page where it lists all the breeds, so the user can memorise the names of all the breeds.
 2. When you click one of the breeds on the doglist page you should go to a page that shows 10 pictures of that breed. So the user can see what a breed looks like.
