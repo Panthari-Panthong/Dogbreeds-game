@@ -6,12 +6,11 @@ export default class UserInfo extends React.Component {
   render() {
     const user = this.props.user
     const { score, totalQuestions } = user
-    //  console.log(typeof(totalQuestions);
-    const total = (totalQuestions == 0) ? 0 :
-      console.log(total);
-    console.log(score / total);
-    let progres = (user.score / user.totalQuestions) * 100
-    // console.log(progres);
+    // // const total = (totalQuestions == 0) ? 0 :
+      console.log(score, totalQuestions);
+    // console.log(score / total);
+    let progres = (totalQuestions !== 0) ? (score / totalQuestions) * 100 : 0
+    progres = Math.round(progres)
 
 
 
