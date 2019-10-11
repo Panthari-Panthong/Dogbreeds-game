@@ -6,6 +6,12 @@ import { getDogslist } from '../actions/dogslist'
 import BigPicture from './BigPicture'
 
 class GameThree extends Component {
+  // getData() {
+  //   setTimeout(() => {
+  //     console.log('Our data is fetched');
+  //   }, 1000)
+  // }
+
   componentDidMount() {
     this.props.gameThree();
   }
@@ -53,7 +59,7 @@ class GameThree extends Component {
 
 
 const mapStateToProps = (state) => {
-  console.log(state)
+  // console.log(state)
   return {
     randomQues: state.randomQues,
     images: state.images,

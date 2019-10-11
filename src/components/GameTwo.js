@@ -2,10 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getRightAnswer } from '../actions/gameTwo';
 import { checkAnswer } from '../actions/userInput';
+
 export class GameTwo extends Component {
   componentDidMount() {
     this.props.getRightAnswer();
   }
+
+
+  nextQuestion = () => {
+    this.componentDidMount()
+  }
+
   render() {
     return (
       <div>
@@ -27,6 +34,8 @@ export class GameTwo extends Component {
             />
           );
         })}
+
+        <button onClick={this.nextQuestion}>next question</button>
       </div>
     );
   }

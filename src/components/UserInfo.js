@@ -1,10 +1,8 @@
 import React from 'react'
-
-
 export default class UserInfo extends React.Component {
-
   render() {
     const user = this.props.user
+
     return (
       <div>
         <ul>
@@ -17,4 +15,3 @@ export default class UserInfo extends React.Component {
     )
   }
 }
-
