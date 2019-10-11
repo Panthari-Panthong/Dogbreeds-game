@@ -31,7 +31,6 @@ export function getRightAnswer() {
       // console.log(rightImage)
       dispatch(setDogImages(response.body.message));
       dispatch(setRightAnswer(rightImage));
-      dispatch(getAnswer(images));
     });
   };
 }

@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+ul li a {
+  display: block;
+  padding: 15px;
+}
+ul {
+  list-style: none;
+}

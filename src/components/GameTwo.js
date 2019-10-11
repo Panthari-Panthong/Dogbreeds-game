@@ -2,17 +2,34 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getRightAnswer } from '../actions/gameTwo';
 import { checkAnswer } from '../actions/userInput';
+import './GameTwo.css';
+
 export class GameTwo extends Component {
   componentDidMount() {
     this.props.getRightAnswer();
   }
+
+  nextQuestion = () => {
+    if (this.props.userInput.correct === false) {
+      this.componentDidMount()
+    } else if (this.props.userInput.correct === true) {
+      setTimeout(() => this.componentDidMount(), 2000)
+    } else {
+      this.componentDidMount()
+    }
+  }
+
+
+
   render() {
     return (
       <div>
         <h1>{this.props.correctAnswer}</h1>
+
         {this.props.images.map(url => {
           return (
             <img
+              className='image-options'
               key={url}
               value={url.split('/')[4]}
               src={url}
@@ -21,12 +38,14 @@ export class GameTwo extends Component {
                 this.props.checkAnswer(
                   url.split('/')[4],
                   this.props.correctAnswer,
-                  this.props.userInput
+                  this.props.userInput,
+                  this.nextQuestion()
                 )
               }
             />
           );
         })}
+
       </div>
     );
   }
