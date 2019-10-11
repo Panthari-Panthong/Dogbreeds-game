@@ -3,4 +3,12 @@
   border: 1px solid rgb(196, 193, 193);
   border-radius: 4px;
   padding: 10px;
+  margin-left: 10px;
+  background-color: rgb(78, 173, 251);
+}
+
+.box-info {
+  position: absolute;
+  right: 100px;
+  margin-top: 10px;
 }

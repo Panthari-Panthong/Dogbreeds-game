@@ -1,0 +1,7 @@
+ul li a {
+  color: black;
+}
+ul li a:hover {
+  color: white;
+  background-color: rgb(78, 173, 251);
+}

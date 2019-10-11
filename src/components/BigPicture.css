@@ -1,0 +1,12 @@
+.big-picture {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-top: 70px;
+  width: 30%;
+  border-radius: 10px;
+  box-shadow: 1px 1px rgb(212, 212, 212);
+  border: 1px solid #ddd;
+  padding: 10px;
+}

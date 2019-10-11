@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getRightAnswer } from '../actions/gameTwo';
 import { checkAnswer } from '../actions/userInput';
+import './GameTwo.css';
 
 export class GameTwo extends Component {
   componentDidMount() {
@@ -20,6 +21,7 @@ export class GameTwo extends Component {
         {this.props.images.map(url => {
           return (
             <img
+              className='image-options'
               key={url}
               value={url.split('/')[4]}
               src={url}
