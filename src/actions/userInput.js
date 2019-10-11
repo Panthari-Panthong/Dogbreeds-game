@@ -4,19 +4,18 @@ export const SELECT_ANSWER = 'SELECT_ANSWER';
 
 export function checkAnswer(value, rightAnswer, user) {
   if (value === rightAnswer) {
-    return {
-      type: 'SELECT_ANSWER',
-      payload: {
-        score: user.score++,
-        totalQuestions: user.totalQuestions++,
-        value: value
-      }
-    };
+    const correct = true
+    return function (dispatch) {
+      dispatch(setUserRightAnswer(correct))
+      dispatch(selectRightAnswer(user))
+    }
+
   } else {
-    return {
-      type: 'SELECT_ANSWER',
-      payload: { totalQuestions: user.totalQuestions++, value: value }
-    };
+    const correct = false
+    return function (dispatch) {
+      dispatch(setUserRightAnswer(correct))
+      dispatch(selectWrongAnswer(user))
+    }
   }
 }
 
@@ -29,11 +28,42 @@ export function addUser(userName) {
   };
 }
 
-export function setUserRightAnswer() {
+export function setUserRightAnswer(correct) {
   return {
     type: 'CORRECT_ANSWER',
-    payload: ''
+    payload: { correct }
   };
 }
 
+
+export function selectRightAnswer() {
+
+  return {
+    type: 'SELECTRIGHT_ANSWER',
+    payload: {
+      score: +1,
+      totalQuestions: +1
+    }
+  };
+}
+
+
+export function selectWrongAnswer() {
+
+  return {
+    type: 'SELECTWRONG_ANSWER',
+    payload: {
+      totalQuestions: +1
+    }
+  };
+}
+
+
+export function checkAnswerGameone() {
+  console.log('Hello')
+
+  // return function (dispatch) {
+  //   dispatch(setUserRightAnswer(correct))
+  // }
+}
 

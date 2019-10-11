@@ -11,14 +11,20 @@ class BigPicture extends React.Component {
     sleep(100).then(() => this.props.getDogImages(this.props.breed, 1));
   }
 
-  render() {
-    return (
-      <div className='dogs-list'>
-        {/* <h1>What's the breed of this dog?</h1> */}
-        <img className='big-picture' src={this.props.image} alt='dog' />
-      </div>
-    );
-  }
+
+
+    nextPic = () => {
+        this.componentDidMount()
+    }
+
+    render() {
+        return (
+
+            <div className="dogs-list">
+                <img className='big-picture' src={this.props.image} alt="dog" onClick={this.nextPic} />
+            </div>
+        )
+    }
 }
 
 const mapStateToProps = state => {

@@ -7,38 +7,38 @@ import { checkAnswer } from '../actions/userInput';
 import './GameOneContainer.css';
 
 class GameOneContainer extends React.Component {
-  componentDidMount() {
-    this.props.getRightAnswer();
-  }
-  nextQuestion = () => {
-    this.componentDidMount();
-  };
-  render() {
-    const options = [...this.props.game].sort();
-    let option = [...this.props.game][0];
-    return (
-      <div>
-        {option ? <BigPicture breed={this.props.game[0]} /> : null}
+    componentDidMount() {
+        this.props.getRightAnswer()
+    }
 
-        {options.map(option => (
-          <button
-            className='btn-options'
-            onClick={() =>
-              this.props.checkAnswer(
-                option,
-                this.props.game[0],
-                this.props.userInput,
-                setTimeout(() => this.nextQuestion(), 2000)
-              )
-            }
-            key={option}
-          >
-            {option}
-          </button>
-        ))}
-      </div>
-    );
-  }
+    nextQuestion = () => {
+        if (this.props.userInput.correct === false) {
+            this.componentDidMount()
+        } else if (this.props.userInput.correct === true) {
+            setTimeout(() => this.componentDidMount(), 2000)
+        } else {
+            this.componentDidMount()
+        }
+    }
+
+
+    render() {
+        const options = [...this.props.game].sort()
+
+        return (
+            <div>
+                {<BigPicture breed={this.props.game[0]} correct={this.props.userInput.correct} />}
+
+                {options.map((option) =>
+                    <button  className='btn-options' 
+                        onClick={() => this.props.checkAnswer(option, this.props.game[0], this.props.userInput, this.nextQuestion())}
+                        key={option}>
+                        {option}
+                    </button>
+                )}
+            </div>
+        )
+    }
 }
 
 const mapStateToProps = state => {

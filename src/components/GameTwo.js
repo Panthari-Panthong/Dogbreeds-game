@@ -10,8 +10,16 @@ export class GameTwo extends Component {
   }
 
   nextQuestion = () => {
-    this.componentDidMount();
-  };
+    if (this.props.userInput.correct === false) {
+      this.componentDidMount()
+    } else if (this.props.userInput.correct === true) {
+      setTimeout(() => this.componentDidMount(), 2000)
+    } else {
+      this.componentDidMount()
+    }
+  }
+
+
 
   render() {
     return (
@@ -31,14 +39,13 @@ export class GameTwo extends Component {
                   url.split('/')[4],
                   this.props.correctAnswer,
                   this.props.userInput,
-                  setTimeout(() => this.nextQuestion(), 2000)
+                  this.nextQuestion()
                 )
               }
             />
           );
         })}
 
-        {/* <button onClick={this.nextQuestion}>next question</button> */}
       </div>
     );
   }
