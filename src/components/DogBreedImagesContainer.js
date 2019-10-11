@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getDogImages } from '../actions/dogImages';
 import { Link } from 'react-router-dom';
+import './DogBreedImagesContainer.css';
 
 class DogBreedImagesContainer extends Component {
   componentDidMount() {
@@ -21,7 +22,9 @@ class DogBreedImagesContainer extends Component {
         <br />
         <div>
           {this.props.images &&
-            this.props.images.map(url => <img src={url} alt='Dog' key={url} />)}
+            this.props.images.map(url => (
+              <img className='image-options' src={url} alt='Dog' key={url} />
+            ))}
           {!this.props.images && 'Loading...'}
         </div>
       </div>
