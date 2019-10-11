@@ -6,15 +6,20 @@ import { getDogslist } from '../actions/dogslist'
 import BigPicture from './BigPicture'
 
 class GameThree extends Component {
-  // getData() {
-  //   setTimeout(() => {
-  //     console.log('Our data is fetched');
-  //   }, 1000)
-  // }
-
   componentDidMount() {
     this.props.gameThree();
   }
+
+  nextQuestion = () => {
+    if (this.props.userInput.correct === false) {
+      this.componentDidMount()
+    } else if (this.props.userInput.correct === true) {
+      setTimeout(() => this.componentDidMount(), 2000)
+    } else {
+      this.componentDidMount()
+    }
+  }
+
 
   render() {
     const options = [...this.props.game].sort()
@@ -34,7 +39,8 @@ class GameThree extends Component {
                     this.props.checkAnswer(
                       url.split('/')[4],
                       this.props.correctAnswer,
-                      this.props.userInput
+                      this.props.userInput,
+                      this.nextQuestion()
                     )
                   }
                 />
@@ -46,7 +52,7 @@ class GameThree extends Component {
               {<BigPicture breed={this.props.game[0]} />}
 
               {options.map((option) =>
-                <button onClick={() => this.props.checkAnswer(option, this.props.game[0], this.props.userInput)} key={option}>{option}</button>
+                <button onClick={() => this.props.checkAnswer(option, this.props.game[0], this.props.userInput, this.nextQuestion())} key={option}>{option}</button>
               )}
             </div>
           </div>

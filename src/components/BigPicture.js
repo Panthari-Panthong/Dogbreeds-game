@@ -12,13 +12,17 @@ class BigPicture extends React.Component {
             .then(() => this.props.getDogImages(this.props.breed, 1))
     }
 
-    render() {
-        // console.log('PROPS - right answer:', this.props.breed);
 
+    nextPic = () => {
+        this.componentDidMount()
+    }
+
+    render() {
         return (
+
             <div className="dogs-list">
                 <h1>What's the breed of this dog?</h1>
-                <img src={this.props.image} alt="dog" />
+                <img src={this.props.image} alt="dog" onClick={this.nextPic} />
             </div>
         )
     }
