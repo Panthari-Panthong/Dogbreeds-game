@@ -59,3 +59,11 @@ export function selectWrongAnswer() {
 }
 
 
+export function checkAnswerGameone() {
+  console.log('Hello')
+
+  // return function (dispatch) {
+  //   dispatch(setUserRightAnswer(correct))
+  // }
+}
+

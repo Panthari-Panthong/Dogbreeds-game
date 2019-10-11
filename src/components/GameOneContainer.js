@@ -8,21 +8,31 @@ import { checkAnswer } from '../actions/userInput'
 
 
 class GameOneContainer extends React.Component {
-
     componentDidMount() {
         this.props.getRightAnswer()
     }
+
+    nextQuestion = () => {
+        if (this.props.userInput.correct === false) {
+            this.componentDidMount()
+        } else if (this.props.userInput.correct === true) {
+            setTimeout(() => this.componentDidMount(), 2000)
+        } else {
+            this.componentDidMount()
+        }
+    }
+
 
     render() {
         const options = [...this.props.game].sort()
 
         return (
             <div>
-                {<BigPicture breed={this.props.game[0]} />}
+                {<BigPicture breed={this.props.game[0]} correct={this.props.userInput.correct} />}
 
                 {options.map((option) =>
                     <button
-                        onClick={() => this.props.checkAnswer(option, this.props.game[0], this.props.userInput)}
+                        onClick={() => this.props.checkAnswer(option, this.props.game[0], this.props.userInput, this.nextQuestion())}
                         key={option}>
                         {option}
                     </button>
