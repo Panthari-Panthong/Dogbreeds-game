@@ -6,10 +6,12 @@ export class GameTwo extends Component {
   componentDidMount() {
     this.props.getRightAnswer();
   }
+
   render() {
     return (
       <div>
         <h1>{this.props.correctAnswer}</h1>
+
         {this.props.images.map(url => {
           return (
             <img
