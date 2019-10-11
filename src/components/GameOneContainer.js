@@ -8,11 +8,12 @@ import { checkAnswer } from '../actions/userInput'
 
 
 class GameOneContainer extends React.Component {
+
     componentDidMount() {
         this.props.getRightAnswer()
     }
+
     render() {
-        // console.log('PROPS', this.props.userInput);
         const options = [...this.props.game].sort()
 
         return (
@@ -20,7 +21,11 @@ class GameOneContainer extends React.Component {
                 {<BigPicture breed={this.props.game[0]} />}
 
                 {options.map((option) =>
-                <button onClick={() => this.props.checkAnswer(option, this.props.game[0], this.props.userInput)} key={option}>{option}</button>
+                    <button
+                        onClick={() => this.props.checkAnswer(option, this.props.game[0], this.props.userInput)}
+                        key={option}>
+                        {option}
+                    </button>
                 )}
             </div>
         )
