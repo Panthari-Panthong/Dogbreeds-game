@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getRightAnswer } from '../actions/gameTwo';
 import { checkAnswer } from '../actions/userInput';
+
 export class GameTwo extends Component {
   componentDidMount() {
     this.props.getRightAnswer();
   }
+
+  nextQuestion = () => {
+    this.componentDidMount();
+  };
 
   render() {
     return (
@@ -23,12 +28,15 @@ export class GameTwo extends Component {
                 this.props.checkAnswer(
                   url.split('/')[4],
                   this.props.correctAnswer,
-                  this.props.userInput
+                  this.props.userInput,
+                  setTimeout(() => this.nextQuestion(), 2000)
                 )
               }
             />
           );
         })}
+
+        {/* <button onClick={this.nextQuestion}>next question</button> */}
       </div>
     );
   }

@@ -7,7 +7,7 @@ export const GET_ANSWER = 'GET_ANSWER';
 export const SET_OPTION = 'SET_OPTIONS'
 
 export function getRandom(question) {
-  console.log(question)
+  // console.log(question)
   return {
     type: 'GET_RANDOM',
     payload: question
@@ -47,7 +47,7 @@ export function setOptions(breeds) {
 export function gameThree() {
   return function (dispatch, getState) {
     const randomQuestion = Math.floor((Math.random() * 2) + 1)
-    console.log("RANDOM", randomQuestion)
+    // console.log("RANDOM", randomQuestion)
     dispatch(getRandom(randomQuestion))
 
     if (randomQuestion === 1) {
@@ -79,7 +79,7 @@ export function gameThree() {
           dispatch(setRightAnswer(breeds[id]))
           const options = []
           options.push(breeds[id])
-          console.log('2. right answer created:', options);
+          // console.log('2. right answer created:', options);
 
           // Create options
           for (let i = 0; i < 2; i++) {
