@@ -14,7 +14,7 @@ export default class UserInfo extends React.Component {
           <li className='user-info'>User name: {user.name}</li>
           <li className='user-info'>Score: {user.score}</li>
           <li className='user-info'>Total questions: {user.totalQuestions}</li>
-          <li className='user-info'>Streak: {user.streak}</li>
+//           <li className='user-info'>Streak: {user.streak}</li>
           <li className='user-info'>Progress: {progress} %</li>
         </ul>
       </div>
